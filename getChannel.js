@@ -1,20 +1,26 @@
 const { ChannelType } = require("discord.js");
 
-module.exports = async function getTurnsChannel(client) {
+module.exports = async function getChannel(
+  client,
+  name,
+  createIfNotFound = true
+) {
   const guildId = process.env.DISCORD_SERVER_ID;
   const guild = client.guilds.cache.get(guildId);
 
   if (!guild) {
     console.error("Guild not found.");
     return null;
+  } else {
+    console.info("Found guild", guild.name);
   }
 
   // Find or create the "turns" channel
   let turnsChannel = guild.channels.cache.find(
-    (channel) => channel.name === "turns"
+    (channel) => channel.name === name
   );
 
-  if (!turnsChannel) {
+  if (!turnsChannel && createIfNotFound) {
     try {
       turnsChannel = await guild.channels.create({
         name: "turns",
