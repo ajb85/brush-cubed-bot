@@ -38,8 +38,10 @@ client.once("ready", async () => {
       //   }
       // }
     }
+    client.destroy();
   } catch (err) {
     console.error(`!!Server error: ${err.message}`);
+    client.off();
   }
 });
 
