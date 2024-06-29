@@ -2,9 +2,9 @@ const countTuesdaysBetweenDates = require("./countTuesdaysBetweenDates");
 const getNextTuesdayDateObject = require("./getNextTuesdayDateObject");
 
 const users = [
-  process.env.DISCORD_FIRE_ID,
-  process.env.DISCORD_SHAM_ID,
   process.env.DISCORD_TYSON_ID,
+  process.env.DISCORD_SHAM_ID,
+  process.env.DISCORD_FIRE_ID,
 ];
 
 module.exports = function getNextTurnUserId(date, skips = 0) {
