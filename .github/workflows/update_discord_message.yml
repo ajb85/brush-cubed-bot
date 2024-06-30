@@ -2,8 +2,8 @@ name: Update Discord Message
 
 on:
   schedule:
-    # Run every Tuesday at 00:00 UTC
-    - cron: "25 1 * * SUN"
+    # Wednesday 4:00 AM PST
+    - cron: "0 12 * * WED"
 
 jobs:
   update-message:
