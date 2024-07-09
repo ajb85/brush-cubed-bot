@@ -18,15 +18,16 @@ client.once("ready", async () => {
       const messageData = await turnsChannel.messages.fetch({ limit: 1 });
       const message = messageData.first();
       const embed = await getEmbed(client);
+      console.log("EMBED: ", embed.data.fields);
 
       const embedData = { embeds: [embed] };
-      if (!message) {
-        await turnsChannel.send(embedData);
-        console.info("Sent message");
-      } else {
-        await message.edit(embedData);
-        console.info("Edited message");
-      }
+      // if (!message) {
+      //   await turnsChannel.send(embedData);
+      //   console.info("Sent message");
+      // } else {
+      //   await message.edit(embedData);
+      //   console.info("Edited message");
+      // }
 
       // const generalChannel = await getChannel(client, "general", false);
       // if (generalChannel) {

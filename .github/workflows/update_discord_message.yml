@@ -2,8 +2,8 @@ name: Update Discord Message
 
 on:
   schedule:
-    # Wednesday 4:00 AM PST
-    - cron: "0 12 * * WED"
+    # Wednesday 12:00 PM PST
+    - cron: "0 20 * * WED"
 
 jobs:
   update-message:
@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "14"
 
