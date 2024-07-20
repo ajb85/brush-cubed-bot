@@ -3,7 +3,8 @@ name: Update Discord Message
 on:
   schedule:
     # Wednesday 12:00 PM PST
-    - cron: "0 20 * * WED"
+    # - cron: "0 20 * * WED"
+    - cron: "*/5 * * * *"
 
 jobs:
   update-message:
@@ -23,4 +24,15 @@ jobs:
         run: npm install
 
       - name: Run script
-        run: npm run dev
+        run: npm run start
+        env:
+          DISCORD_API_URL: ${{secrets.DISCORD_API_URL}}
+          DISCORD_APPLICATION_ID: ${{secrets.DISCORD_APPLICATION_ID}}
+          DISCORD_BOT_TOKEN: ${{secrets.DISCORD_BOT_TOKEN}}
+          DISCORD_CLIENT_SECRET: ${{secrets.DISCORD_CLIENT_SECRET}}
+          DISCORD_FIRE_ID: ${{secrets.DISCORD_FIRE_ID}}
+          DISCORD_PUBLIC_KEY: ${{secrets.DISCORD_PUBLIC_KEY}}
+          DISCORD_REDIRECT_URI: ${{secrets.DISCORD_REDIRECT_URI}}
+          DISCORD_SERVER_ID: ${{secrets.DISCORD_SERVER_ID}}
+          DISCORD_SHAM_ID: ${{secrets.DISCORD_SHAM_ID}}
+          DISCORD_TYSON_ID: ${{secrets.DISCORD_TYSON_ID}}
